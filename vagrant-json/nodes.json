@@ -1,0 +1,22 @@
+{
+  "nodes": {
+    "sal-saltp01.example.in": {
+      ":ip": "192.168.1.10",
+      "ports": [],
+      ":memory": 2048,
+      ":bootstrap": "bootstrap.sh"
+    },
+    "sal-webt01.example.in": {
+      ":ip": "192.168.1.11",
+      "ports": [],
+      ":memory": 1024,
+      ":bootstrap": "bootstrap.sh"
+    },
+    "sal-webt02.example.in": {
+      ":ip": "192.168.1.12",
+      "ports": [],
+      ":memory": 1024,
+      ":bootstrap": "bootstrap.sh"
+    }
+  }
+}
