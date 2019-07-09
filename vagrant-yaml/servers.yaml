@@ -1,0 +1,14 @@
+---
+- name: gitlab.example.in
+  hostname: gitlab.example.in
+  box: centos/7
+  ram: 2048
+  vcpu: 1
+  ip: 192.168.10.10
+
+- name: sal-saltp01.example.in
+  box: centos/6
+  ram: 2048
+  ip: 192.168.10.21
+  vcpu: 1
+  provision: salt-master.sh
