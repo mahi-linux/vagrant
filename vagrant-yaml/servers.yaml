@@ -7,8 +7,25 @@
   ip: 192.168.10.10
 
 - name: sal-saltp01.example.in
+  hostname: sal-saltp01.example.in
   box: centos/6
   ram: 2048
-  ip: 192.168.10.21
+  ip: 192.168.10.11
+  vcpu: 1
+  provision: salt-master.sh
+
+- name: sal-webp01.example.in
+  hostname: sal-webp01.example.in
+  box: centos/6
+  ram: 1024
+  ip: 192.168.10.12
+  vcpu: 1
+  provision: salt-master.sh
+
+- name: sal-webp02.example.in
+  hostname: sal-webp02.example.in
+  box: centos/6
+  ram: 1024
+  ip: 192.168.10.13
   vcpu: 1
   provision: salt-master.sh
