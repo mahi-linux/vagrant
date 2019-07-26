@@ -20,7 +20,6 @@
   ram: 1024
   ip: 192.168.10.12
   vcpu: 1
-  provision: salt-master.sh
 
 - name: sal-webp02.example.in
   hostname: sal-webp02.example.in
@@ -28,4 +27,3 @@
   ram: 1024
   ip: 192.168.10.13
   vcpu: 1
-  provision: salt-master.sh
