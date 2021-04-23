@@ -20,7 +20,7 @@
   ram: 1024
   ip: 192.168.10.12
   vcpu: 1
-  provision: myscript.sh
+  provision: dummy.sh
 
 - name: sal-webp02
   hostname: sal-webp02.example.in
