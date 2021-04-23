@@ -2,14 +2,18 @@
 # vi: set ft=ruby :
  
 # Specify minimum Vagrant version and Vagrant API version
-Vagrant.require_version ">= 1.6.0"
+Vagrant.require_version ">= 2.2.14"
 VAGRANTFILE_API_VERSION = "2"
  
 # Require YAML module
 require 'yaml'
  
 # Read YAML file with box details
-servers = YAML.load_file('servers.yaml')
+hosts = YAML.load_file('vagrant_hosts.yaml')
+
+# Disabled vbguest additions
+#config.vm.box_check_update = false
+#config.vbguest.auto_update = false
 
 # Create and configure the VMs
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -19,21 +23,23 @@ config.vm.box_check_update = false
 config.vbguest.auto_update = false
 
 # Iterate through entries in YAML file
-servers.each do |server|
-config.vm.define server['name'] do |srv|
+hosts.each do |host|
+  config.vm.define host['name'] do |node|
+    node.vm.box = host['box']
+    node.vm.hostname = host['hostname']
+    node.vm.network :private_network, ip: host['ip']
+    
+    node.vm.provider :virtualbox do |vb|
+      vb.name = host['name']
+      vb.memory = host['ram']
+      vb.cpus = host['vcpu']
+end
+    node.vm.provision :shell do |sh|
+      sh.path = host['provision']
 
-# Configure CPU & RAM per settings in machines.yml (VirtualBox)
-srv.vm.box = server['box']
-srv.vm.hostname = server ['hostname']
-srv.vm.network "private_network", ip: server["ip"]
+#config.vm.provision "shell", inline: "echo VM has been provisioned successfully"
+#config.vm.provision :shell, run: 'always', path: host['provision'] if host['provision']
 
-srv.vm.provider 'virtualbox' do |vb|
-vb.name = server["name"]
-vb.memory = server["ram"]
-vb.cpus = server['vcpu']
-
-# Provision the VM
-config.vm.provision "shell", inline: "echo VM has been provisioned successfully"
 end # config.vm.provider 'virtualbox'
 end # config.vm.define
 end # config.vm.provision
