@@ -8,21 +8,31 @@
 
 - name: sal-saltp01
   hostname: sal-saltp01.example.in
-  box: centos/6
+  box: centos/8
   ram: 2048
   ip: 192.168.10.11
-  vcpu: 1
+  vc pu: 1
+#  provision: dummy.sh
 
 - name: sal-webp01
   hostname: sal-webp01.example.in
-  box: centos/6
+  box: centos/7
   ram: 1024
   ip: 192.168.10.12
   vcpu: 1
+  provision: myscript.sh
 
 - name: sal-webp02
   hostname: sal-webp02.example.in
-  box: centos/6
+  box: centos/8
   ram: 1024
   ip: 192.168.10.13
   vcpu: 1
+
+- name: sal-devops01
+  hostname: sal-devops01.example.in
+  box: centos/8
+  ram: 2024
+  ip: 192.168.10.15
+  vcpu: 1
+  provision: terraform-install.sh
