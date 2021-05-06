@@ -18,6 +18,7 @@
 - name: sal-webp01
   hostname: sal-webp01.example.in
   box: centos/7
+  size: 20GB
   ram: 1024
   ip: 192.168.10.12
   vcpu: 1
