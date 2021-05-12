@@ -63,7 +63,7 @@ systemctl --now enable crond
 
 # Configure ForeMan
 foreman-installer --scenario katello \
---foreman-initial-organization “sal-foremanp01.example.in \
+--foreman-initial-organization “sal-foremanp01.example.in" \
 --foreman-initial-location “India” \
 --foreman-initial-admin-username admin \
 --foreman-initial-admin-password F0reman!
