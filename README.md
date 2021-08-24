@@ -11,4 +11,7 @@ To disable SSL Certificate:
 
 * config.vm.box_download_insecure = true => Add this line in Vagrantfile
 
-* vagrant box add --insecure centos/8
+* vagrant box add centos/8 -c --insecure
+
+* -c or --clean Clean any temporary download files
+* --insecure Do not validate SSL certificates
