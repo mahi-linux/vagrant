@@ -8,6 +8,7 @@ export VAGRANT_EXPERIMENTAL="disks"
 * update-ca-trust extract
 
 To disable SSL Certificate:
-config.vm.box_download_insecure = true
 
-vagrant box add --insecure centos/8
+* config.vm.box_download_insecure = true => Add this line in Vagrantfile
+
+* vagrant box add --insecure centos/8
