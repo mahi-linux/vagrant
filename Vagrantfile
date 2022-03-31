@@ -15,8 +15,9 @@ hosts = YAML.load_file('vagrant_hosts.yaml')
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 # Disabled vbguest additions
-config.vm.box_check_update = false
-config.vbguest.auto_update = false
+#config.vm.box_check_update = false
+#config.vm.box_download_insecure = true
+#config.vbguest.auto_update = false
 
 # Iterate through entries in YAML file
 hosts.each do |host|

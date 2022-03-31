@@ -26,7 +26,7 @@
 
 - name: sal-webp02
   hostname: sal-webp02.example.in
-  box: centos/8
+  box: hashicorp/bionic64
   ram: 1024
   ip: 192.168.10.13
   vcpu: 1
@@ -35,7 +35,7 @@
 - name: sal-devops01
   hostname: sal-devops01.example.in
   box: centos/8
-  ram: 2024
+  ram: 2048
   ip: 192.168.10.15
   vcpu: 1
   provision: terraform-install.sh
