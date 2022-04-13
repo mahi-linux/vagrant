@@ -26,16 +26,24 @@
 
 - name: sal-webp02
   hostname: sal-webp02.example.in
-  box: hashicorp/bionic64
+  box: almalinux/8
   ram: 1024
   ip: 192.168.10.13
+  vcpu: 1
+  provision: dummy.sh
+
+- name: sal-ansible
+  hostname: sal-ansible.example.in
+  box: ansible/tower
+  ram: 2048
+  ip: 192.168.10.15
   vcpu: 1
   provision: dummy.sh
  
 - name: sal-devops01
   hostname: sal-devops01.example.in
-  box: centos/8
+  box: centos/7
   ram: 2048
-  ip: 192.168.10.15
+  ip: 192.168.10.20
   vcpu: 1
-  provision: terraform-install.sh
+  provision: dummy.sh

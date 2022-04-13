@@ -16,8 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 # Disabled vbguest additions
 #config.vm.box_check_update = false
-#config.vm.box_download_insecure = true
 #config.vbguest.auto_update = false
+config.vm.box_download_insecure = true
 
 # Iterate through entries in YAML file
 hosts.each do |host|
@@ -35,7 +35,9 @@ end
     node.vm.provision :shell do |sh|
       sh.path = host['provision']
 
-#config.vm.provision "shell", inline: "echo VM has been provisioned successfully"
+config.vm.provision "file", source: "~/vagrant/zscaler.cer", destination: "/tmp/zscaler.cer"
+config.vm.provision "shell", inline: "sudo cp -r /tmp/zscaler.cer /etc/pki/ca-trust/source/anchors/zscaler.cer"
+config.vm.provision "shell", inline: "sudo update-ca-trust force-enable; sudo update-ca-trust extract"
 #config.vm.provision :shell, run: 'always', path: host['provision'] if host['provision']
 
 end # config.vm.provider 'virtualbox'
