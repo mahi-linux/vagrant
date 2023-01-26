@@ -4,6 +4,8 @@ export VAGRANT_EXPERIMENTAL="disks"
 
 #### How to update CA certificates in Linux
 
+Ref: https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html
+
 * cp root-ca.crt /etc/pki/ca-trust/source/anchors/
 * update-ca-trust extract
 
@@ -23,4 +25,5 @@ To disable SSL Certificate:
 * sudo "/Library/Application Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh" restart 
 * Adjust the privacy settings of Big Sur: System Preferences > Security and Privacy > click the allow button. => Then reboot the MAC.
 
-
+* For Windows Machines, simply disable network adopter and enable from the device manager.
+* if the above solution doesn't work then run vagrant up as an Administrator.
