@@ -27,3 +27,14 @@ To disable SSL Certificate:
 
 * For Windows Machines, simply disable network adopter and enable from the device manager.
 * if the above solution doesn't work then run vagrant up as an Administrator.
+
+##### To connect from local machine with root account
+```
+# vi /etc/ssh/sshd_config
+PasswordAuthentication no => yes
+
+# sshd -t
+# systemctl restart sshd
+
+Then try accessing from local machine
+```
